@@ -1,2 +1,12 @@
-POST http://127.0.0.1:3/auth/register
+POST http://127.0.0.1:3000/auth/register
 Content-Type: application/json
+
+{
+    "name":"prueba",
+    "Email":"gabriel@live.com",
+    "password":"2231231321321321321321321321321321321321321321"
+
+}
+###
+GET http://127.0.0.1:3000/auth/register
+con
