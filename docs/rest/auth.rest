@@ -2,11 +2,25 @@ POST http://127.0.0.1:3000/auth/register
 Content-Type: application/json
 
 {
-    "name":"prueba",
-    "Email":"gabriel@live.com",
-    "password":"2231231321321321321321321321321321321321321321"
+    "name":"prueba3",
+    "email":"gabriel@live.com",
+    "password":"123456"
 
 }
-###
-GET http://127.0.0.1:3000/auth/register
-con
+
+
+### login sin conexion a BDD
+
+POST  http://127.0.0.1:3000/auth/login
+Content-Type: application/json
+
+{
+    "name":"prueba3",
+    "email":"gabriel@live.com",
+    "password":"123456"  
+
+}
+
+### users
+GET http://127.0.0.1:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3MzAwODQ2MTQsImV4cCI6MTczMDA4NTIxNH0.uTO8PgZH7zO872sg3JJELYb4eOMqdHJ6Dqse4Yk1hUI
