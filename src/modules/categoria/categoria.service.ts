@@ -9,24 +9,33 @@ export class CategoriaService {
 
   constructor(@Inject('CATEGORIA_REPOSITORY') private categoriaRepository:Repository<Categoria>){}
 
+  async create(createCategoriaDto: CreateCategoriaDto) {
+    const categoria = new Categoria()
+    categoria.nombre=createCategoriaDto.nombre
+    categoria.detalle=createCategoriaDto.detalle
+    return await this.categoriaRepository.save(categoria)
+  }
+
+  async findAll(){
+    return await this.categoriaRepository.find({order:{id:'asc'}});
+  }
+
   
-  create(createCategoriaDto: CreateCategoriaDto) {
-    return 'This action adds a new categoria';
+
+  async findOne(id: number) {
+    return await this.categoriaRepository.findOne({
+      where: {
+        id:id
+      }
+    });
+
   }
 
-  async findAll() {
-    return await this.categoriaRepository.find();
+  async update(id: number, updateCategoriaDto: UpdateCategoriaDto) {
+    return await this.categoriaRepository.update(id,updateCategoriaDto);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} categoria`;
-  }
-
-  update(id: number, updateCategoriaDto: UpdateCategoriaDto) {
-    return `This action updates a #${id} categoria`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} categoria`;
+  async remove(id: number) {
+    return await this.categoriaRepository.delete(id);
   }
 }
