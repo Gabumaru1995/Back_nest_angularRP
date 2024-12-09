@@ -41,7 +41,7 @@ export class AuthService {
         
         if(!verificarPass) throw new HttpException('Password invalido',401)
 
-        let payload={mail:user.email, id:user.id}
+        let payload={email:user.email, id:user.id}
         const token= this.jwtservice.sign(payload)
         return {user:user,token:token};
     }
